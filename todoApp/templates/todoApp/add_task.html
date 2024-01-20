@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Task</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'todoApp/style.css' %}"
+    />
+  </head>
+  <body>
+    <h1>Add Task to {{ task_list.title }}</h1>
+    <form method="post" action="{% url 'todoApp:add_task' task_list.id %}">
+      {% csrf_token %}
+      <label for="task">Task:</label>
+      <input type="text" id="task" name="task" required />
+      <button type="submit">Add Task</button>
+    </form>
+  </body>
+</html>

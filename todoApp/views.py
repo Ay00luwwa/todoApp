@@ -1,4 +1,3 @@
-# todo_app/views.py
 from django.shortcuts import render, redirect
 from .models import ToDo, ToDoList
 
@@ -21,7 +20,7 @@ def add_task(request, list_id):
         new_task = ToDo(task=task, task_list=task_list)
         new_task.save()
         return redirect('index')
-    return render(request, 'todo_app/add_task.html', {'task_list': task_list})
+    return render(request, 'todoApp/add_task.html', {'task_list': task_list})
 
 def complete_task(request, task_id):
     task = ToDo.objects.get(pk=task_id)
