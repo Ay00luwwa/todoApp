@@ -9,9 +9,9 @@
       href="{% static 'todoApp/style.css' %}"
     />
   </head>
-  <body>
+  <body class="body">
     <h1>Add ToDo List</h1>
-    <form method="post" action="{% url 'todoApp:add_list' %}">
+    <form class="form" method="post" action="{% url 'todoApp:add_list' %}">
       {% csrf_token %}
       <label for="title">Title:</label>
       <input type="text" id="title" name="title" required />
