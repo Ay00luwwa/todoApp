@@ -5,14 +5,19 @@
     <title>ToDo App</title>
     <link rel="stylesheet" type="text/css" href="{% static 'todoApp/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'todoApp/style (1).css' %}">
-
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
     <nav class="sidebar">
       <div class="sidebar-top-wrapper">
         <div class="sidebar-top">
           <a href="#" class="logo__wrapper">
-            <img src="{%%} alt="Logo" class="logo-small" />
+            <img src="{% static 'todoApp/logo.svg' %}" alt="Logo" class="logo-small" />
             <span class="hide company-name"> Aurora Wealth </span>
           </a>
         </div>
@@ -239,7 +244,7 @@
       </div>
       <div class="sidebar__profile">
         <div class="avatar__wrapper">
-          <img class="avatar" src="assets/profile.png" alt="Joe Doe Picture" />
+          <img class="avatar" src="{% static 'todoApp/profile.png' %}" alt="Joe Doe Picture" />
           <div class="online__status"></div>
         </div>
         <div class="avatar__name hide">
@@ -269,21 +274,24 @@
         </a>
       </div>
     </nav>
-    <h1>ToDo Lists</h1>
+    <div class="main-content">
+        <h1>ToDo Lists</h1>
     <ul>
         {% for todo_list in lists %}
             <li>{{ todo_list.title }} - <a href="{% url 'todoApp:add_task' todo_list.id %}">Add Task</a></li>
             <ul>
                 {% for task in todo_list.todo_set.all %}
-                    <li{% if task.completed %} class="completed"{% endif %}>{{ task.task }} - <a href="{% url 'todo_app:complete_task' task.id %}">Complete</a></li>
+                    <li{% if task.completed %} class="completed"{% endif %}>{{ task.task }} - <a href="{% url 'todoApp:complete_task' task.id %}">Complete</a></li>
                 {% endfor %}
             </ul>
         {% endfor %}
     </ul>
     <a href="{% url 'todoApp:add_list' %}">Add List</a>
+    </div>
+    
 
 
-    <script src="script.js"></script>
+    <script src="{% static 'todoApp/script.js'%}"></script>
 
 </body>
 </html>

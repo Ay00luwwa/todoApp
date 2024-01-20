@@ -1,22 +1,23 @@
 :root {
   --primary-color: #191919;
-  --primary: #408CF9;
-  --white: #FFFFFF;
-  --sidebar-primary-hover: #2B2B2F;
+  --primary: #408cf9;
+  --white: #ffffff;
+  --sidebar-primary-hover: #2b2b2f;
   --sidebar-background: #141318;
-  --background: #F3F5F6;
-  --text-link: #FFFFFF;
-  --expand-button: #408CF9;
-  --logout: #FA7575;
-  --search-background: #2B2B2F;
+  --background: #f3f5f6;
+  --text-link: #ffffff;
+  --expand-button: #408cf9;
+  --logout: #fa7575;
+  --search-background: #2b2b2f;
 }
 
 body {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-size: 16px;
   padding: 1rem;
   height: 100%;
   background: var(--background);
+  display: flex;
 }
 
 html {
@@ -37,6 +38,7 @@ html {
   height: 100%;
   padding: 1.5rem 1rem;
   border-radius: 1.5rem;
+  -webkit-user-select: none;
   user-select: none;
   max-width: 18rem;
   min-width: 4rem;
